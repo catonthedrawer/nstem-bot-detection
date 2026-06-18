@@ -48,6 +48,31 @@ No confirmed labels exist, so labels are created:
 
 A Random Forest classifier trained on these labels is then applied to the full subscriber list using the same timestamp features.
 
+---
+
+## Results
+
+**Version B - Rule-Based Labels (held-out test set):**
+- Precision: 1.0000
+- Recall: 0.9780
+- F1: 0.9889
+- Train/test F1 gap: 0.011, no overfitting
+- Zero false positives
+
+**Version A - Consensus Labels (held-out test set):**
+- Precision: 1.0000
+- Recall: 1.0000
+- F1: 1.0000
+- Zero false positives, zero false negatives
+
+Near-perfect scores reflect internal consistency rather than performance on unseen data. The model rediscovers the threshold logic used to generate its own training labels. Version A's perfect scores are expected given that its bot class contains only the strongest bot behavioral signals.
+
+**Deployment:**
+- Precision: 1.0000
+- Recall: 0.9889
+- F1: 0.9944
+- 16% of the full subscriber list flagged as bot-contaminated.
+
 --- 
 
 ## Data & Privacy
